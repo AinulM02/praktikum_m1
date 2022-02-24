@@ -49,7 +49,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 1;
-  String _text = "Ganjil";
+  int bil =0;
+  String _text = "Prima";
 
   void _incrementCounter() {
     setState(() {
@@ -59,13 +60,32 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
-      if(_counter>10){
-        _counter=1;
+      if(_counter>100){
+        _counter=0;
       }
-      if(_counter%2==0){
+      /*if(_counter%2==0){
         _text = "Genap";
       }else{
         _text="Ganjil";
+      }*/
+      _text = "Prima : ";
+      for(int i = 1; i <= _counter ; i++){
+        /*if(i%2 == 0){
+          _text += '${i}, ';
+        }*/
+        /*if(i % 2==0){
+          if(i % 3==0){
+            _text += '${i}, ';
+          }
+        }*/
+        bil = 0;
+        for(int j = 1; j<=i; j++){
+          if(i % j==0){
+            bil = bil + 1 ;
+          }
+        }
+        if(bil==2)
+          _text += '${i}, ';
       }
     });
   }
